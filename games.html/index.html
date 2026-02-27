@@ -3,10 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>História dos Games | Timeline</title>
+    <title>História dos Games | WebQuest</title>
 
+    <style>
+        /* 1. CONFIGURAÇÕES GERAIS (Afeta o site todo) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Garante que as bordas não aumentem o tamanho das caixas */
+            font-family: 'Courier New', Courier, monospace; /* Fonte estilo "máquina de escrever" ou retro */
+        }
+
+        html {
+            scroll-behavior: smooth; /* Faz a rolagem ser suave ao clicar no menu */
+        }
+
+        body {
+            background-color: #1a1a1a; /* Cor de fundo geral (cinza escuro) */
+            color: #fff; /* Cor do texto geral (branco) */
+        }
+
+        /* 2. MENU DE NAVEGAÇÃO (A barra no topo) */
+        nav {
+            position: fixed; /* O segredo: "fixed" prende o menu na tela */
+            top: 0;          /* Cola no topo */
+            width: 100%;     /* Ocupa a largura total */
+            background: rgba(0, 0, 0, 0.9); /* Fundo preto quase transparente */
+            padding: 15px;
+            text-align: center; /* Centraliza os links */
+            z-index: 1000;   /* Garante que o menu fique EM CIMA de tudo */
+            border-bottom: 2px solid #00ff00; /* Linha verde embaixo do menu */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none; /* Tira o sublinhado do link */
+            margin: 0 15px;        /* Espaço entre os botões */
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #00ff00; /* Muda para verde quando passa o mouse */
+        }
+
+        /* 3. ESTRUTURA DAS SEÇÕES (As partes grandes da página) */
+        section {
+            min-height: 100vh; /* "vh" significa Viewport Height. 100vh = altura total da tela */
+            padding: 80px 20px;
+            display: flex;       /* Usa Flexbox para alinhar */
+            flex-direction: column; /* Organiza itens em coluna (um embaixo do outro) */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center;     /* Centraliza horizontalmente */
+            text-align: center;
+            border-bottom: 1px solid #333; /* Linha fina separando as seções */
+        }
+
+        /* Títulos e Textos Padrão */
+        h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
+        h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        p { max-width: 800px; font-size: 1.2rem; margin-bottom: 20px; }
+
+        /* A caixa que envolve o texto (para dar leitura sobre fundos coloridos) */
+        .destaque {
+            background: rgba(0,0,0,0.6); /* Fundo preto semitransparente */
+            padding: 30px;
+            border-radius: 10px; /* Bordas arredondadas */
+            border: 2px solid;   /* Borda colorida (a cor muda em cada seção) */
+        }
+
+        /* ===================================================== */
+        /* VISUAL ESPECÍFICO DE CADA ÉPOCA (IDs)                 */
+        /* ===================================================== */
+
+        /* CAPA (HERO) */
+        #hero {
+            /* Imagem de fundo que pega da internet */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; /* Estica a imagem para cobrir tudo */
+            background-attachment: fixed; /* Efeito Parallax (a imagem fica parada enquanto o texto sobe) */
+        }
+        #hero h1 { color: #00ff00; text-shadow: 2px 2px #000; }
+
+        /* ANOS 70 (Estilo Terminal Antigo) */
+        #anos70 {
+            background-color: #000; /* Fundo preto total */
+            color: #0f0; /* Letra verde fósforo */
+        }
+        #anos70 .destaque { border-color: #0f0; } /* Borda verde */
+
+        /* ANOS 80/90 (Estilo Arcade/Neon) */
+        #anos80 {
+            background: linear-gradient(45deg, #2b003e, #000000); /* Degradê Roxo */
+        }
+        #anos80 h2 { color: #ff0055; text-shadow: 2px 2px #00eaff; } /* Título rosa com sombra azul */
+        #anos80 .destaque { border-color: #ff0055; }
+
+        /* MODERNO (Estilo Clean/Futuro) */
+        #moderno {
+            background-color: #f4f4f4; /* Fundo quase branco */
+            color: #222; /* Letra escura */
+        }
+        #moderno h2 { color: #222; }
+        #moderno .destaque { 
+            background: #fff; 
+            border-color: #333; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra suave atrás da caixa */
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+        }
+    </style>
 </head>
+
 <body>
 
     <nav>
@@ -25,7 +138,7 @@
         <div class="destaque">
             <h2>1970: O Início Pixelado</h2>
             <p>Tudo era imaginação. Dois traços brancos e um quadrado simulavam uma partida de tênis.</p>
-            <p><strong>Jogos Chave:</strong> Pong, Space Invaders.</p>
+            <hr style="border-color: #0f0; margin: 10px 0;"> <p><strong>Jogos Chave:</strong> Pong, Space Invaders.</p>
             <p><strong>O Gamer:</strong> Visitava os Arcades (Fliperamas) e competia por "High Scores".</p>
         </div>
     </section>
@@ -34,6 +147,7 @@
         <div class="destaque">
             <h2>1980-90: A Guerra dos Consoles</h2>
             <p>As cores invadiram a tela. Mario vs Sonic. Nintendo vs Sega. O mundo conheceu os mascotes.</p>
+            <hr style="border-color: #ff0055; margin: 10px 0;">
             <p><strong>Jogos Chave:</strong> Super Mario World, Sonic, Street Fighter II.</p>
             <p><strong>O Gamer:</strong> Soprava cartuchos e jogava com amigos no sofá de casa.</p>
         </div>
@@ -43,6 +157,7 @@
         <div class="destaque">
             <h2>2000+: A Era Conectada</h2>
             <p>Gráficos ultra-realistas, mundos abertos e competições globais.</p>
+            <hr style="border-color: #333; margin: 10px 0;">
             <p><strong>Jogos Chave:</strong> Minecraft, GTA V, League of Legends.</p>
             <p><strong>O Gamer:</strong> É profissional (E-Sports), streamer ou joga online com pessoas do mundo todo.</p>
         </div>
